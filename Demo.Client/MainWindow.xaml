@@ -3,27 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Demo.Client"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="350"
+        Title="WCF Versioning"
+        Height="150"
         Width="525">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0"
-                Content="Version 1"
+        <Button Content="DoSomething()"
                 Margin="20"
                 FontSize="20"
                 Click="BtnVer1Clicked"></Button>
-        <Button Grid.Row="1"
-                Content="Version 2"
-                Margin="20"
-                FontSize="20"
-                Click="BtnVer2Clicked"></Button>
 
     </Grid>
 </Window>

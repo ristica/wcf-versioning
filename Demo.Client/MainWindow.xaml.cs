@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Configuration;
+using System.Windows;
 using Demo.Proxies;
 
 namespace Demo.Client
@@ -8,6 +9,10 @@ namespace Demo.Client
         public MainWindow()
         {
             InitializeComponent();
+            var configVersion = ConfigurationSettings.AppSettings["VER_NR"];
+            var version = string.IsNullOrWhiteSpace(configVersion) ? null : configVersion;
+
+            DemoClient.Version = version;
         }
 
         private void BtnVer1Clicked(object sender, RoutedEventArgs e)
@@ -15,11 +20,6 @@ namespace Demo.Client
             var proxy = new DemoClient();
             proxy.DoSomething();
             proxy.Close();
-        }
-
-        private void BtnVer2Clicked(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
