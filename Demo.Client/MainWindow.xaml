@@ -12,10 +12,10 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Button Content="DoSomething()"
+        <Button Content="Invoke service"
                 Margin="20"
                 FontSize="20"
-                Click="BtnVer1Clicked"></Button>
+                Click="BtnClicked"></Button>
 
     </Grid>
 </Window>

@@ -10,12 +10,14 @@ namespace Demo.Client
         {
             InitializeComponent();
             var configVersion = ConfigurationSettings.AppSettings["VER_NR"];
-            var version = string.IsNullOrWhiteSpace(configVersion) ? null : configVersion;
 
-            DemoClient.Version = version;
+            if (!string.IsNullOrWhiteSpace(configVersion))
+            {
+                DemoClient.Version = configVersion;
+            }
         }
 
-        private void BtnVer1Clicked(object sender, RoutedEventArgs e)
+        private void BtnClicked(object sender, RoutedEventArgs e)
         {
             var proxy = new DemoClient();
             proxy.DoSomething();
