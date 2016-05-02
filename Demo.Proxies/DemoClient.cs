@@ -10,17 +10,15 @@ namespace Demo.Proxies
 
         public DemoClient()
         {
+            // inject version value into soap message header
+            if (string.IsNullOrWhiteSpace(Version)) return;
+
             // spin the operation scope
             // note: if not doing this at first then 
             // the OperationContext.Current will be NULL
             var operationScope = new OperationContextScope(InnerChannel);
 
-            // inject version value into soap message header
-            if (!string.IsNullOrWhiteSpace(Version))
-            {
-                OperationContext.Current.OutgoingMessageHeaders.Add(
-                    MessageHeader.CreateHeader("VER_NR", "http://pingo/version", Version));
-            }
+            OperationContext.Current.OutgoingMessageHeaders.Add(MessageHeader.CreateHeader("VER_NR", "http://pingo/version", Version));
         }
 
         public void DoSomething()
